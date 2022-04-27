@@ -1,10 +1,10 @@
-import SignUp from "./SingUp";
-import { AuthProvider } from "./AuthContext";
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./Home";
-import Login from "./Login";
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from "./PublicRoute";
+import Home from './components/Home';
+import SignUp from './components/SingUp';
+import Login from './components/Login';
+import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter} from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
   return (
@@ -12,11 +12,12 @@ function App() {
       <div style={{ margin: '2em' }}>
         <BrowserRouter>
           <PrivateRoute exact path="/" component={Home} />
-          <PublicRoute path="/signup" component={SignUp} />
           <PublicRoute path="/login" component={Login} />
+          <PublicRoute path="/signup" component={SignUp} />
         </BrowserRouter>
       </div>
     </AuthProvider>
   );
 }
+
 export default App;
